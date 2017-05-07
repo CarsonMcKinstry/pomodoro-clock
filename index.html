@@ -14,26 +14,51 @@
   </head>
   <body ng-app="pomodoroApp" ng-controller="mainController as pom">
 
-    <div class="pomo-controls">
-      
-    </div>
+    <main>
+      <div class="ui-controls">
+        <div class="pomo-controls">
+          <h2>Pomodoro Length </h2>
+          <button ng-click="pom.pomDown()">
+            <i class="fa fa-minus"></i>
+          </button>
+          <p>{{ pom.pomMin }}</p>
+          <button ng-click="pom.pomUp()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+        <div class="pomo-controls">
+          <h2>Break Length</h2>
+          <button ng-click="pom.breakDown()">
+            <i class="fa fa-minus"></i>
+          </button>
+          <p>{{ pom.breakMin }}</p>
+          <button ng-click="pom.breakUp()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </div>
 
-    <!-- <h1>{{ pom.pomTime }}</h1> -->
-    <h2>{{ pom.timeLeft}}</h2>
-    <h3>{{ pom.message }}</h3>
+      <!-- <h1>{{ pom.pomTime }}</h1> -->
+      <div class="timer-display">
+        <h2>{{ pom.timeLeft}}</h2>
+        <h3>{{ pom.message }}</h3>
+      </div>
 
 
-    <button ng-click="pom.start()">
-      <i class="fa fa-play"></i>
-    </button>
+      <div class="timer-controls">
+        <button ng-click="pom.start()">
+          <i class="fa fa-play"></i>
+        </button>
 
-    <button ng-click="pom.cancel()">
-      <i class="fa fa-pause"></i>
-    </button>
+        <button ng-click="pom.pause()">
+          <i class="fa fa-pause"></i>
+        </button>
 
-    <button ng-click="pom.reset()">
-      <i class="fa fa-ban"></i>
-    </button>
+        <button ng-click="pom.reset()">
+          <i class="fa fa-ban"></i>
+        </button>
+      </div>
+    </main>
 
   </body>
 </html>

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  width: 80%;
+  max-width: 960px;
+  margin: 50px auto;
+}
+
+.ui-controls .pomo-controls {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+}
+
+.ui-controls .pomo-controls h2 {
+  padding-bottom: 26px;
+}
+
+.ui-controls .pomo-controls p{
+  display: inline-block;
+  padding: 10px 3%;
+  font-size: 20px;
+}
+
+.ui-controls .pomo-controls button {
+  font-size: 1em;
+  line-height: 1em;
+  padding: 1em;
+  border-radius: 50%;
+  border: 0;
+}
