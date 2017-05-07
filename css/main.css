@@ -8,6 +8,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #131E5C;
 }
 
 main {
@@ -38,4 +40,64 @@ main {
   padding: 1em;
   border-radius: 50%;
   border: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: transparent;
+  border: 3px solid white;
+  transition: .1s ease-in all;
+}
+
+.ui-controls .pomo-controls button:active {
+  background-color: #fff;
+  color: #131E5C;
+  /*border: 3px solid #131E5C;*/
+}
+
+.ui-controls .pomo-controls button:focus {
+  outline: 0;
+}
+
+.timer-display {
+  text-align: center;
+  padding: 64px;
+}
+
+.timer-display > h2 {
+  font-size: 5em;
+}
+
+.timer-display > h3 {
+  padding-top: 46px;
+  font-size: 2.5em;
+}
+
+.timer-controls {
+  text-align: center;
+}
+
+.timer-controls button {
+  font-size: 2em;
+  line-height: 2em;
+  background-color: transparent;
+  border: 0;
+  padding: 1.5em;
+  cursor: pointer;
+  transition: 0.1s ease-in all;
+  color: #fff;
+}
+
+.timer-controls button:focus {
+  outline: 0;
+}
+
+.play:hover {
+   color: #23A63B;
+}
+
+.pause:hover {
+  color: #FFF441;
+}
+
+.reset:hover {
+  color: #FF3C26;
 }

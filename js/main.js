@@ -8,7 +8,7 @@ function mainCtrl( $interval ) {
   vm.pomMin = 25;
   vm.pomTime = vm.pomMin * 60;
   vm.breakMin = 5;
-  vm.breakTime = vm.breakMin * 60 + 1;
+  vm.breakTime = vm.breakMin * 60;
   vm.timeLeft = displayTime(vm.pomTime);
   vm.originalTime = 25;
   vm.message = "Waiting to start..."
@@ -45,17 +45,23 @@ function mainCtrl( $interval ) {
       vm.pomTime--;
       vm.timeLeft = displayTime(vm.pomTime);
       if ( vm.pomTime === 0){
+        playSound('audio/gentle-alarm.mp3');
         onBreak = true;
         vm.message = "Time for a break!";
         $interval.cancel(timer);
-        breakTick();
-        timer = $interval(breakTick, 1000, 0);
+        vm.timeLeft = displayTime(vm.breakTime);
+        setTimeout(function(){
+          breakTick();
+          timer = $interval(breakTick, 1000, 0);
+        }, 1000);
       }
     }
 
     function breakTick() {
       vm.breakTime--;
       if (vm.breakTime === 0){
+        playSound('audio/filling-your-inbox.mp3');
+        vm.timeLeft = displayTime(vm.pomTime);
         onBreak = false;
         vm.message = "Waiting to start";
         reset();
@@ -78,8 +84,8 @@ function mainCtrl( $interval ) {
   }
 
   function resetBreak(){
-    vm.breakTime = vm.breakMin * 60 +1;
-    console.log(vm.breakTime);
+    vm.breakTime = vm.breakMin * 60;
+    reset();
   }
 
   function pomUp() {
@@ -102,7 +108,15 @@ function mainCtrl( $interval ) {
 
   function breakDown() {
     vm.breakMin--;
+    if(vm.breakMin < 1){
+      vm.breakMin = 1;
+    }
     resetBreak();
+  }
+
+  function playSound(file) {
+    var wav = new Audio(file);
+    wav.play();
   }
 
 }
