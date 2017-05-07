@@ -18,6 +18,12 @@ main {
   margin: 50px auto;
 }
 
+main h1 {
+  margin-bottom:42px;
+  font-size: 3em;
+  text-align: center;
+}
+
 .ui-controls .pomo-controls {
   display: inline-block;
   width: 49%;
